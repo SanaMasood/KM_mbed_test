@@ -11,7 +11,7 @@ class MyThread(Thread):
         Thread.__init__(self)
     def run(self):
         call(["C:\\u-blox\\gallery\\ubx\\pts\\win\\2017.09_KM\\bin\\tracecap.bat", "--config", "UFP1_KM", "--axf",
-              "CORTEX_M7_APP", "KM_Serial_Fifo\\BUILD\\R5XXX\\ARM\\KM_Serial_Fifo.elf", "--start", "CORTEX_M7_APP", "--address", "10.17.4.114" ,"--timeout","400","--nohwtrace","--notrace"])
+              "CORTEX_M7_APP", "KM_Serial_Fifo\\BUILD\\R5XXX\\ARM\\KM_Serial_Fifo.elf", "--start", "CORTEX_M7_APP", "--address", "10.17.4.114" ,"--timeout","800","--nohwtrace","--notrace"])
 
 #tracecap --config UFP1_KM --axf CORTEX_M7_APP <mbed application> --start CORTEX_M7_APP --address 10.17.4.114
 
@@ -22,7 +22,7 @@ class EchoSerial():
         self.ser.baudrate = baud_Rate
         self.ser.port = port
         self.ser.timeout = 30
-        print "Port and baud rate is set to "+ str(self.ser.port) + "and" + str(self.ser.baudrate)
+        print "Port and baud rate is set to "+ str(self.ser.port) + " and " + str(self.ser.baudrate)
 
     def Start_Server(self):
         self.ser.open()

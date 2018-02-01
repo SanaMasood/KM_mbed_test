@@ -17,7 +17,7 @@ class MyThread(Thread):
 
 class EchoSerial():
 
-    def __init__(self,port = 'COM7', baud_Rate = 38400):
+    def __init__(self,port = 'COM7', baud_Rate = 57600):
         self.ser = serial.Serial()
         self.ser.baudrate = baud_Rate
         self.ser.port = port
@@ -50,7 +50,7 @@ class EchoSerial():
 
 if __name__ == '__main__':
 
-    baudrate = 38400
+    baudrate = 57600
     myThreadOb1 = MyThread()
     myThreadOb1.setName('Tracecap Thread')
     myThreadOb1.start()

@@ -3,8 +3,18 @@ import random
 import string
 from threading import Thread
 from subprocess import call
+from optparse import OptionParser
 import os
 from time import *
+
+# read command line options
+
+usage = "usage: %prog [options]"
+parser = OptionParser(usage)
+
+parser.add_option("-b", "--baud", dest="baudrate", default = "9600",
+                  help="Provide different baudrate")
+(options, args) = parser.parse_args()
 
 class MyThread(Thread):
     def __init__(self):

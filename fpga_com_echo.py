@@ -59,17 +59,16 @@ class EchoSerial():
 
 
 if __name__ == '__main__':
-
-    baudrate = 9600
-    myThreadOb1 = MyThread()
-    myThreadOb1.setName('Tracecap Thread')
-    myThreadOb1.start()
-    sleep(10)
+    if options.baudrate == True:
+        baudrate = 9600
+        myThreadOb1 = MyThread()
+        myThreadOb1.setName('Tracecap Thread')
+        myThreadOb1.start()
+        sleep(10)
 
     
-    server = EchoSerial('COM7', baudrate)
-    server.Start_Server()
-    for i in range (1, baudrate/20):
-        server.Echo(i)
-
-    myThreadOb1.join()
+        server = EchoSerial('COM7', baudrate)
+        server.Start_Server()
+        for i in range (1, baudrate/20):
+            server.Echo(i)
+        myThreadOb1.join()

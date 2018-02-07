@@ -12,8 +12,9 @@ from time import *
 usage = "usage: %prog [options]"
 parser = OptionParser(usage)
 
-parser.add_option("-b", "--baud", dest="baudrate", default = "9600",
+parser.add_option("-b", "--baud", dest="baudrate", type="int", default = "9600",
                   help="Provide different baudrate")
+
 (options, args) = parser.parse_args()
 
 class MyThread(Thread):

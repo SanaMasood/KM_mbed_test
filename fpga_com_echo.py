@@ -28,7 +28,7 @@ class MyThread(Thread):
 
 class EchoSerial():
 
-    def __init__(self,port = 'COM7', baud_Rate = 9600):
+    def __init__(self,port = 'COM7', baud_Rate = options.baudrate):
         self.ser = serial.Serial()
         self.ser.baudrate = baud_Rate
         self.ser.port = port

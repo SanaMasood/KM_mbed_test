@@ -33,7 +33,7 @@ class EchoSerial():
         self.ser.baudrate = baud_Rate
         self.ser.port = port
         self.ser.timeout = 5
-        print "Port and baud rate is set"
+        print "Port and baud rate is set to "+ str(self.ser.port) + " and " + str(self.ser.baudrate)
 
     def Start_Server(self):
         self.ser.open()

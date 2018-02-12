@@ -3,9 +3,19 @@ import random
 import string
 from threading import Thread
 from subprocess import call
-import argparse
+from optparse import OptionParser
 import os
 from time import *
+
+# read command line options
+
+usage = "usage: %prog [options]"
+parser = OptionParser(usage)
+
+parser.add_option("-b", "--baudrate", dest="baudrate", type="int", default = "9600",
+                  help="Provide different baudrate")
+
+(options, args) = parser.parse_args()
 
 class MyThread(Thread):
     def __init__(self):
@@ -18,7 +28,7 @@ class MyThread(Thread):
 
 class EchoSerial():
 
-    def __init__(self,port = 'COM7', baud_Rate = 9600):
+    def __init__(self,port = 'COM7', baud_Rate = options.baudrate):
         self.ser = serial.Serial()
         self.ser.baudrate = baud_Rate
         self.ser.port = port
@@ -50,13 +60,7 @@ class EchoSerial():
 
 
 if __name__ == '__main__':
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument("baudrate", help="Set Baudrate")
-    args = parser.parse_args()
-    print "baud rate is set to "+ str(args.baudrate)
-
-    baudrate = args.baudrate
+    baudrate = 9600
     myThreadOb1 = MyThread()
     myThreadOb1.setName('Tracecap Thread')
     myThreadOb1.start()

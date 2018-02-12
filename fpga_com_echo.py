@@ -55,7 +55,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("baudrate", help="Set Baudrate")
     args = parser.parse_args()
-    print "baud rate is set to "+ str(args.baudrate)
+   # print "baud rate is set to "+ str(args.baudrate)
 
     baudrate = args.baudrate
     myThreadOb1 = MyThread()

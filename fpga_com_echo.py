@@ -62,10 +62,9 @@ if __name__ == '__main__':
     myThreadOb1.setName('Tracecap Thread')
     myThreadOb1.start()
     sleep(10)
-
-    int(baudrate)
     server = EchoSerial('COM7', baudrate)
     server.Start_Server()
-    for i in range (1, 19200/20):
+    num = int(baudrate)
+    for i in range (1, num/20):
         server.Echo(i)
     myThreadOb1.join()
